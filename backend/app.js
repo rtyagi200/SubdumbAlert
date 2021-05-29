@@ -30,12 +30,12 @@ app.use('/api/subdomains', subdomainRouter);
 require('./database/conn');
 
 //Handle Page not found error
-app.use((req,res,next)=>{
-    res.status(404).json({
-        success:false,
-        message: "Page not found"
-    })
-})
+// app.use((req,res,next)=>{
+//     res.status(404).json({
+//         success:false,
+//         message: "Page not found"
+//     })
+// })
 
 
 if(process.env.NODE_ENV == "production"){
