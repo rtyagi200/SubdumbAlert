@@ -16,16 +16,6 @@ app.use(bodyParser.json());
 //Use Cookie Parser
 app.use(cookieParser());
 
-//Config for only development
-if(process.env.NODE_ENV==='development'){
-    app.use(cors({
-        origin: process.env.CLIENT_URL,
-        credentials: true
-    }))
-
-    app.use(morgan('dev'));
-}
-
 //Load all routes
 const userRouter = require('./routes/users');
 const domainRouter = require('./routes/domains');
@@ -50,6 +40,10 @@ app.use((req,res,next)=>{
 
 if(process.env.NODE_ENV == "production"){
     app.use(express.static("frontend/build"));
+    const path = require('path');
+    app.get('*',(req,res)=>{
+        res.sendFile(path.resolve(__dirname,'frontend','build','index.html'));
+    })
 }
 
 
