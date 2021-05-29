@@ -47,8 +47,14 @@ app.use((req,res,next)=>{
     })
 })
 
+
+if(process.env.NODE_ENV == "production"){
+    app.use(express.static("frontend/build"));
+}
+
+
 //Listening on port
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, ()=>{
     console.log(`App listening on Port ${PORT}`);

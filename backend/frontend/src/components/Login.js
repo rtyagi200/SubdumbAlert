@@ -28,7 +28,7 @@ const Login = () => {
     const handleRegisterSubmit = e => {
         e.preventDefault();
         if (name && email && password) {
-            axios.post('http://localhost:5000/api/users/register', {
+            axios.post('/api/users/register', {
                 name, email, password
             }).then(res => {
                 if (res.data.success) {
@@ -56,7 +56,7 @@ const Login = () => {
     const handleLoginSubmit = e => {
         e.preventDefault();
         if (email && password) {
-            axios.post('http://localhost:5000/api/users/login', {
+            axios.post('/api/users/login', {
                 email, password
             }).then(res => {
                 if (res.data.success) {

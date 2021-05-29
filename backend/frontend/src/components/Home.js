@@ -35,7 +35,7 @@ const Home = () => {
     const handleDomainSubmit = e => {
         e.preventDefault();
         if (domain) {
-            axios.post('http://localhost:5000/api/domains/add-new-domain', {
+            axios.post('/api/domains/add-new-domain', {
                 domain
             }).then(res => {
                 if (res.data.success) {
@@ -61,7 +61,7 @@ const Home = () => {
     const handleEditDomainSubmit = e => {
         e.preventDefault();
         if (domain && editDomainId && editUserId) {
-            axios.patch('http://localhost:5000/api/domains/edit-domain', {
+            axios.patch('/api/domains/edit-domain', {
                 editDomainId, domain, editUserId
             }).then(res => {
                 if (res.data.success) {
@@ -91,7 +91,7 @@ const Home = () => {
 
     let getAllSubdomains = async (e) =>{
         let searchKey = (e && e.target) ? e.target.value : '';
-        axios.get(`http://localhost:5000/api/subdomains/getSudomains?q=${searchKey}`).then(res => {
+        axios.get(`/api/subdomains/getSudomains?q=${searchKey}`).then(res => {
             if (res.data.success) {
                 setSubdomainList(res.data.subdomains);
             } else {
@@ -104,7 +104,7 @@ const Home = () => {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/domains/').then(res => {
+        axios.get('/api/domains/').then(res => {
             if (res.data.success) {
                 setDomainList(res.data.domains);
             } else {
@@ -146,10 +146,10 @@ const Home = () => {
 
     function downloadSubdomains(domain, subdomains) {
         toast.success("PDF is downloading...");
-        axios.post('http://localhost:5000/api/subdomains/create-pdf', {
+        axios.post('/api/subdomains/create-pdf', {
             domain, subdomains
         }).then(() => {
-            axios.get('http://localhost:5000/api/subdomains/fetch-pdf', {
+            axios.get('/api/subdomains/fetch-pdf', {
                 responseType: 'blob'
             }).then((res) => {
                 let pdfBlob = new Blob([res.data], { type: 'application/pdf' });
@@ -164,7 +164,7 @@ const Home = () => {
 
 
     function removeDomain(domainId, userId) {
-        axios.delete('http://localhost:5000/api/domains/delete-domain', {
+        axios.delete('/api/domains/delete-domain', {
             data: {
                 domainId,
                 userId
@@ -185,7 +185,7 @@ const Home = () => {
     function getEditDomain(domainId, userId) {
         setEditDomainId('');
         setEditUserId('');
-        axios.post('http://localhost:5000/api/domains/get-edit-domain', {
+        axios.post('/api/domains/get-edit-domain', {
             domainId,
             userId
         }
