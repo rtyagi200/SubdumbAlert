@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.navbar{
+    padding: 0.7rem 5rem;
+    z-index: 1000;
+}
+
+.navbar .navbar-brand{
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+#navbarSupportedContent > ul > li:nth-child(n) > a{
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+#navbarSupportedContent > ul > li:nth-child(n) > a:hover,
+#navbarSupportedContent > ul > li:nth-child(n) > a:active{
+    color: #00bf85;
+}
+
+#navbarSupportedContent .btn{
+    background-color: #00bf85;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+}
+
+/* .mid{
+    position: relative;
+    margin-bottom: 7%;
+} */
+
+.mid .breadcrumb{
+    background-color: #00bf85;
+}
+
+.mid .breadcrumb li{
+    font-size: medium;
+    font-weight: bolder;
+    color: #fff;
+}
+
+.addButton{
+    cursor:pointer;
+}
+
+#domains{
+    height: 83vh;
+    position: relative;
+    margin-top: 7%;
+}
+
+
+/* .section-content{
+    display: table-cell;
+    vertical-align: middle;
+} */
+
+#subdomains{
+    height: 83vh;
+    position: relative;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    /* display: table;
+    width: 100%; */
+}
